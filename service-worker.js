@@ -1,14 +1,14 @@
-const CACHE_NAME = 'tradepro-cache-v2'; // IMPORTANTE: mude este número sempre que atualizar os arquivos do site
+const CACHE_NAME = 'tradepro-cache-v3'; // Incrementado para forçar atualização
 const CORE_ASSETS = [
   './',
-  './index.html',
-  './app.html',
-  './manifest.json',
-  './icons/icon-192.png',
-  './icons/icon-512.png',
-  './icons/icon-maskable-192.png',
-  './icons/icon-maskable-512.png',
-  './icons/apple-touch-icon.png'
+  'index.html',
+  'app.html',
+  'manifest.json',
+  'icon-192.png',
+  'icon-512.png',
+  'icon-maskable-192.png',
+  'icon-maskable-512.png',
+  'apple-touch-icon.png'
 ];
 
 
@@ -50,7 +50,7 @@ self.addEventListener('fetch', (event) => {
           }
           return response;
         })
-        .catch(() => caches.match(event.request).then((r) => r || caches.match('./app.html')))
+        .catch(() => caches.match(event.request).then((r) => r || caches.match('app.html')))
     );
     return;
   }
@@ -67,7 +67,7 @@ self.addEventListener('fetch', (event) => {
           }
           return response;
         })
-        .catch(() => caches.match('./app.html'));
+        .catch(() => caches.match('app.html'));
     })
   );
 });
